@@ -1,0 +1,171 @@
+1. Scenario: You are developing a banking application that categorizes transactions based on the amount entered.
+ Write logic to determine whether the amount is positive, negative, or zero.
+
+Solution : 
+  >get the input from the user
+  > if the amount entered is '0' , print zero - no ammount transferred
+  > if the amount entered is in '-' , print negative - cannot process transactions
+  > if the amount entered is greater than 0 , print positive - process the transactions
+
+2.	Scenario: A digital locker requires users to enter a numerical passcode. As part of a security feature, the system checks the sum of the digits of the passcode.
+ Write logic to compute the sum of the digits of a given number
+
+Solution :
+   > get an input from the user
+   > initialiize sum = 0 
+   > using while loop , check the condition for a number greater than 0 
+   > use modulus operator and divisible to take the last digit and also remove the last digit
+   > run until the while condition goes false
+   > print the sum
+Code  :
+number = 12334
+sum =0 
+while number>0 :
+    sum = sum + int(number%10)
+    number = int(number/10)
+print(int(sum))
+
+
+3.	Scenario: A mobile payment app uses a simple checksum validation where reversing a transaction ID helps detect fraud.
+ Write logic to take a number and return its reverse.
+
+Solution : 
+   > get an input from the user
+   > initialize reverse as 0
+   > using while loop , check number > 0 
+   > number % 10, store that number in the reverse using a logic reverse * 10 + the lastdigit
+   > now , remove the last digit  , using number/10
+   > when the while loop ends , print the reverse
+Code : 
+  trans_ID = int(input("Enter a transaction ID: "))
+#sum =0 
+reverse = 0
+while trans_ID >0 :
+    lastdig =int(trans_ID%10)
+    reverse = reverse * 10 + lastdig
+    trans_ID = int(trans_ID/10)
+print(int(reverse))
+
+
+4.	Scenario: In a secure login system, certain features are enabled only for users with prime-numbered user IDs.
+ Write logic to check if a given number is prime.
+
+ Solution : 
+    > get an input from the user
+    > create a function checkprime and return a value
+    > in function : if the number is 2, give access directly
+    > (or) if the number is divisible by half of its value of any number from 0 to halfvalue
+    > it is not prime
+    > if it not divisilbe, then it is prime
+    eg : 17 --> if 17 is divisible by half i.e : 8(approx) , if the number is divisible with in      8 , then it is not prime, else it is prime
+
+5.	Scenario: A scientist is working on permutations and needs to calculate the factorial of numbers frequently.
+ Write logic to find the factorial of a given number using recursion.
+
+Solution : 
+    > get an input from the user
+    > using a function, in if condition first check for 1 or 0 as in input
+    > else , using number * recursion(number-1) , re-call it again and again until number become 1 
+    > by doing that, it will store the value inside the function call and after all the call, it will execute it 
+    one by one and get multiplied with the number at last.
+code : def recursion(number):
+    if number == 0 or number == 1:  # base case
+        return 1
+    else:
+        return number * recursion(number - 1)
+
+6.	Scenario: A unique lottery system assigns ticket numbers where only Armstrong numbers win the jackpot.
+ Write logic to check whether a given number is an Armstrong number.
+
+Solution : 
+     > get an input from the user
+     > use while condition for number > 0
+    > using modulues and division for taking the last digit and removing the last digit
+    > additionally, use (a ** b) for cubing each digit
+    > and then check it with input value
+ code : 
+    number = int (input("Enter a number "))
+cnumber = number
+product = 0
+ams = 0 
+while number>0 :
+    ams = number % 10
+    product = ams ** 3 + product
+    number = int(number/10)
+if (cnumber==product) :
+    print(product," is an armstrong number")
+else :
+    print(product," is not an armstrong number")
+
+
+
+7.	Scenario: A password manager needs to strengthen weak passwords by swapping the first and last characters of user-generated passwords.
+ Write logic to perform this operation on a given string.
+
+Solution : 
+    > get an input from the user
+    > now take only the first letter using ..[0] likewise last letter..[-1]
+    > concatenate all three, like [-1] + [1:-1] + [0]
+    > you will get the output
+
+NOTE : I am not sure mam , whether this code is right or not (professionally),may be we can use this as a shortcut.
+
+
+
+8.	Scenario: A low-level networking application requires decimal numbers to be converted into binary format before transmission.
+ Write logic to convert a given decimal number into its binary equivalent.
+
+ Solution : 
+    >use a built in bin function
+    > or use modulues operator and divide by 2 logic 
+    > main part is, store it as a string and add the remaining value one by one, so it wont get add like integers, use type conversion -> important step
+    > after the while condition become 0
+    > return the value
+
+code : 
+        def ret(number):
+            store = ""
+            while number >0 :
+                store = str(number%2) + store
+                number = number//2 
+            return store
+
+9.	Scenario: A text-processing tool helps summarize articles by identifying the most significant words.
+ Write logic to find the longest word in a sentence.
+
+Solution :  
+    > get an input from the user
+    > using split function , take each word to access it against the next consecutive words
+    > initialize a empty string to store a longest word
+    > using for and if , compare the temp word with the word in the longest using greater than operator
+    > print the longest word after the for loop completed
+ code : 
+        sentence =  "Learning a new programming language"
+words = sentence.split()
+lword =""
+for temp in words:
+     if(len(temp)>len(lword)):
+         lword = temp
+print(lword)
+
+10.	Scenario: A plagiarism detection tool compares words from different documents and checks if they are anagrams (same characters but different order).
+ Write logic to check whether two given strings are anagrams.
+
+Solution : 
+    >get a two string input from the user
+    > use sorted function to sort it in the order
+    > use the length function to check if both are the same length , else print not anagrams
+    > if length are same, check whether both sorted strings are equal (==) , if true both are anagrams
+
+        code : 
+            str1 = "listen"
+str2 = "stelin"
+strsor1 = sorted(str1)
+strsor2 = sorted(str2)
+if(len(str1) != len(str2)):
+    print("Both are not an anagrams")
+elif(strsor1 == strsor2):
+    print("Both are anagrams")
+else :
+    print("Invalid Input")
+    
